@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>Tmux工具</title>
+    <link href="/2022/10/26/Tmux%E5%B7%A5%E5%85%B7/"/>
+    <url>/2022/10/26/Tmux%E5%B7%A5%E5%85%B7/</url>
+    
+    <content type="html"><![CDATA[<h2 id="Tmux工具的学习使用"><a href="#Tmux工具的学习使用" class="headerlink" title="Tmux工具的学习使用"></a>Tmux工具的学习使用</h2><p>在服务器上测试demo的时候，需要后台挂起服务，方便查看项目运行情况，学习了一下tmux</p><h3 id=""><a href="#" class="headerlink" title=""></a></h3>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>ubuntu</tag>
+      
+      <tag>Tmux</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>算法与数据数据结构C语言实现</title>
     <link href="/2022/10/24/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84C%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0/"/>
     <url>/2022/10/24/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84C%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0/</url>
@@ -132,11 +159,11 @@
     
     <tags>
       
+      <tag>ubuntu</tag>
+      
       <tag>Jenkins</tag>
       
       <tag>Golang</tag>
-      
-      <tag>ubuntu</tag>
       
     </tags>
     
