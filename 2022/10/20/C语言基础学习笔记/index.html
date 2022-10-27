@@ -24,7 +24,7 @@
 <meta property="og:description" content="从头捡起C语言开始刷算法，准备先过一遍数据结构与算法这门课程。发现大部分书籍都是用C语言实现的，而Go语言的书很少有，找到的一些电子书也不够完善，所以重学一遍C语言，先学一遍数据结构与算法，再来系统的刷题。 变量 全局变量保存在内存的全局存储区中，占用静态的存储单元 局部变量保存在栈中，只有在所在函数被调用时才动态地为变量分配存储单元  数组static关键字的使用 局部变量的修饰符通常是在某个函">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-10-20T08:38:45.000Z">
-<meta property="article:modified_time" content="2022-10-27T02:50:05.084Z">
+<meta property="article:modified_time" content="2022-10-27T11:26:09.544Z">
 <meta property="article:author" content="1yao">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="数据结构">
@@ -221,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.4k 字
+          2.8k 字
         
       </span>
     
@@ -232,7 +232,7 @@
         
         
         
-          21 分钟
+          24 分钟
         
       </span>
     
@@ -354,6 +354,8 @@
             <p><strong>strstr(s1,s2);</strong></p><p>返回一个指针，指向字符串 s1 中字符串 s2 的第一次出现的位置。</p>
           </div>
 
+
+
 <h3 id="结构体"><a href="#结构体" class="headerlink" title="结构体"></a>结构体</h3><p><strong>C 数组允许定义可存储相同类型数据项的变量，结构是 C 编程中另一种用户自定义的可用的数据类型，它允许您存储不同类型的数据项。</strong></p>
 <h4 id="定义结构"><a href="#定义结构" class="headerlink" title="定义结构"></a>定义结构</h4><p>为了定义结构，您必须使用 <strong>struct</strong> 语句。struct 语句定义了一个包含多个成员的新的数据类型，struct 语句的格式如下：</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs markdown">struct tag &#123; <br><span class="hljs-code">    member-list</span><br><span class="hljs-code">    member-list </span><br><span class="hljs-code">    member-list  </span><br><span class="hljs-code">    ...</span><br><span class="hljs-code">&#125; variable-list ;</span><br><span class="hljs-code">//tag 是结构体标签。</span><br><span class="hljs-code">//member-list 是标准的变量定义，比如 int i; 或者 float f，或者其他有效的变量定义。</span><br><span class="hljs-code">//variable-list 结构变量，定义在结构的末尾，最后一个分号之前，您可以指定一个或多个结构变量。</span><br></code></pre></td></tr></table></figure>
@@ -361,6 +363,17 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Books</span>&#123;</span><br>	<span class="hljs-type">char</span> title[<span class="hljs-number">50</span>];<br>	<span class="hljs-type">char</span> author[<span class="hljs-number">50</span>];<br>	<span class="hljs-type">char</span> subject[<span class="hljs-number">100</span>];<br>	<span class="hljs-type">int</span> book_id;<br>&#125; book;<br></code></pre></td></tr></table></figure>
 
 
+
+<h3 id="共用体"><a href="#共用体" class="headerlink" title="共用体"></a>共用体</h3><p><strong>共用体是一种特殊的数据类型，允许您在相同的内存位置存储不同的数据类型。您可以定义一个带有多成员的共用体，但是任何时候只能有一个成员带有值。共用体提供了一种使用相同的内存位置的有效方式。</strong></p>
+<h4 id="定义共用体"><a href="#定义共用体" class="headerlink" title="定义共用体"></a>定义共用体</h4><p>为了定义共用体，您必须使用 union 语句，方式与定义结构类似。union 语句定义了一个新的数据类型，带有多个成员。union 语句的格式如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-class"><span class="hljs-keyword">union</span> [<span class="hljs-title">union</span> <span class="hljs-title">tag</span>]</span><br><span class="hljs-class">&#123;</span><br>   member definition;<br>   member definition;<br>   ...<br>   member definition;<br>&#125; [one or more <span class="hljs-class"><span class="hljs-keyword">union</span> <span class="hljs-title">variables</span>];</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-class"><span class="hljs-keyword">union</span> <span class="hljs-title">Data</span>&#123;</span><br>	<span class="hljs-type">int</span> i;<br>	<span class="hljs-type">float</span> f;<br>	<span class="hljs-type">char</span> str[<span class="hljs-number">20</span>];<br>&#125; data;<br></code></pre></td></tr></table></figure>
+
+<p>访问共用体成员，使用成员运算符**(.)**</p>
+<div class="note note-info">
+            <p>在同一时间，只能使用一个类型的成员变量，否则会造成数据损坏。</p>
+          </div>
 
 
                 
