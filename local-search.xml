@@ -8,7 +8,7 @@
     <link href="/2022/10/26/Tmux%E5%B7%A5%E5%85%B7/"/>
     <url>/2022/10/26/Tmux%E5%B7%A5%E5%85%B7/</url>
     
-    <content type="html"><![CDATA[<h2 id="Tmux工具的学习使用"><a href="#Tmux工具的学习使用" class="headerlink" title="Tmux工具的学习使用"></a>Tmux工具的学习使用</h2><p>在服务器上测试demo的时候，需要后台挂起服务，方便查看项目运行情况，学习了一下tmux。</p><p>参考网站：知乎(<a href="https://zhuanlan.zhihu.com/p/102546608)%E3%80%81%E9%98%AE%E4%B8%80%E5%B3%B0%E7%9A%84%E5%8D%9A%E5%AE%A2(https://www.ruanyifeng.com/blog/2019/10/tmux.html)">https://zhuanlan.zhihu.com/p/102546608)、阮一峰的博客(https://www.ruanyifeng.com/blog/2019/10/tmux.html)</a></p><h3 id=""><a href="#" class="headerlink" title=""></a></h3>]]></content>
+    <content type="html"><![CDATA[<h2 id="Tmux工具的学习使用"><a href="#Tmux工具的学习使用" class="headerlink" title="Tmux工具的学习使用"></a>Tmux工具的学习使用</h2><p>在服务器上测试demo的时候，需要后台挂起服务，方便查看项目运行情况，学习了一下tmux。</p><p>参考网站：<a href="https://zhuanlan.zhihu.com/p/102546608">知乎</a>、<a href="https://www.ruanyifeng.com/blog/2019/10/tmux.html">阮一峰的博客</a></p><h3 id=""><a href="#" class="headerlink" title=""></a></h3>]]></content>
     
     
     <categories>
