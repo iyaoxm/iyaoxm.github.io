@@ -24,7 +24,7 @@
 <meta property="og:description" content="从头捡起C语言开始刷算法，准备先过一遍数据结构与算法这门课程。发现大部分书籍都是用C语言实现的，而Go语言的书很少有，找到的一些电子书也不够完善，所以重学一遍C语言，先学一遍数据结构与算法，再来系统的刷题。 变量 全局变量保存在内存的全局存储区中，占用静态的存储单元 局部变量保存在栈中，只有在所在函数被调用时才动态地为变量分配存储单元  数组static关键字的使用 局部变量的修饰符通常是在某个函">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-10-20T08:38:45.000Z">
-<meta property="article:modified_time" content="2022-10-27T11:26:09.544Z">
+<meta property="article:modified_time" content="2022-10-27T11:28:20.796Z">
 <meta property="article:author" content="1yao">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="数据结构">
@@ -371,7 +371,7 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-class"><span class="hljs-keyword">union</span> <span class="hljs-title">Data</span>&#123;</span><br>	<span class="hljs-type">int</span> i;<br>	<span class="hljs-type">float</span> f;<br>	<span class="hljs-type">char</span> str[<span class="hljs-number">20</span>];<br>&#125; data;<br></code></pre></td></tr></table></figure>
 
 <p>访问共用体成员，使用成员运算符**(.)**</p>
-<div class="note note-info">
+<div class="note note-warning">
             <p>在同一时间，只能使用一个类型的成员变量，否则会造成数据损坏。</p>
           </div>
 
