@@ -16,22 +16,22 @@
   <meta name="author" content="1yao">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Linux系统中常用的终端命令删除：rm1234rm -rf abc&#x2F;def.logrm -f abc&#x2F;def.log删除多个文件:rm -rf abc&#x2F;a.txt abc&#x2F;b.txt   -i 删除前逐一询问确认。 -f 即使原档案属性设为唯读，亦直接删除，无需逐一确认。 -r 将目录及以下之档案亦逐一删除。  复制：cp12将当前目录test&#x2F;下的所有文件复制到新目录newtest下:cp -">
+    <meta name="description" content="git常用命令git tag轻量标签 1git tag v1.0.0  附注标签（为附注标签指定一条信息） 1git tag -a v1.0.0 -m &amp;#x27;version 1.0.0&amp;#x27;  后期打标签 1234获取历史提交记录：git log --pretty&#x3D;oneline补上标签：git tag -a v1.0.0 9fceb02(校验和)  列出标签 123git taggi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux常用命令随记">
-<meta property="og:url" content="http://example.com/2023/01/30/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E9%9A%8F%E8%AE%B0/index.html">
+<meta property="og:title" content="git常用命令">
+<meta property="og:url" content="http://example.com/2023/01/31/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
 <meta property="og:site_name" content="1yao的博客">
-<meta property="og:description" content="Linux系统中常用的终端命令删除：rm1234rm -rf abc&#x2F;def.logrm -f abc&#x2F;def.log删除多个文件:rm -rf abc&#x2F;a.txt abc&#x2F;b.txt   -i 删除前逐一询问确认。 -f 即使原档案属性设为唯读，亦直接删除，无需逐一确认。 -r 将目录及以下之档案亦逐一删除。  复制：cp12将当前目录test&#x2F;下的所有文件复制到新目录newtest下:cp -">
+<meta property="og:description" content="git常用命令git tag轻量标签 1git tag v1.0.0  附注标签（为附注标签指定一条信息） 1git tag -a v1.0.0 -m &amp;#x27;version 1.0.0&amp;#x27;  后期打标签 1234获取历史提交记录：git log --pretty&#x3D;oneline补上标签：git tag -a v1.0.0 9fceb02(校验和)  列出标签 123git taggi">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-01-30T10:02:04.000Z">
-<meta property="article:modified_time" content="2023-01-31T06:48:05.006Z">
+<meta property="article:published_time" content="2023-01-31T05:45:01.000Z">
+<meta property="article:modified_time" content="2023-02-06T02:59:10.567Z">
 <meta property="article:author" content="1yao">
-<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Linux常用命令随记 - 1yao的博客</title>
+  <title>git常用命令 - 1yao的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Linux常用命令随记"></span>
+            <span id="subtitle" data-typed-text="git常用命令"></span>
           
         </div>
 
@@ -207,8 +207,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-01-30 18:02" pubdate>
-          2023年1月30日 晚上
+        <time datetime="2023-01-31 13:45" pubdate>
+          2023年1月31日 下午
         </time>
       </span>
     
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.2k 字
+          1k 字
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          11 分钟
+          9 分钟
         
       </span>
     
@@ -278,49 +278,47 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Linux常用命令随记</h1>
+            <h1 style="display: none">git常用命令</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="Linux系统中常用的终端命令"><a href="#Linux系统中常用的终端命令" class="headerlink" title="Linux系统中常用的终端命令"></a>Linux系统中常用的终端命令</h2><h4 id="删除：rm"><a href="#删除：rm" class="headerlink" title="删除：rm"></a>删除：rm</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">rm -rf abc/def.log<br>rm -f abc/def.log<br>删除多个文件:<br>rm -rf abc/a.txt abc/b.txt<br></code></pre></td></tr></table></figure>
+                <h2 id="git常用命令"><a href="#git常用命令" class="headerlink" title="git常用命令"></a>git常用命令</h2><h3 id="git-tag"><a href="#git-tag" class="headerlink" title="git tag"></a>git tag</h3><p><strong>轻量标签</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs git">git tag v1.0.0<br></code></pre></td></tr></table></figure>
 
-<ul>
-<li>-i 删除前逐一询问确认。</li>
-<li>-f 即使原档案属性设为唯读，亦直接删除，无需逐一确认。</li>
-<li>-r 将目录及以下之档案亦逐一删除。</li>
-</ul>
-<h4 id="复制：cp"><a href="#复制：cp" class="headerlink" title="复制：cp"></a>复制：cp</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">将当前目录test/下的所有文件复制到新目录newtest下:<br>cp -r test/ newtest<br></code></pre></td></tr></table></figure>
+<p><strong>附注标签</strong>（为附注标签指定一条信息）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs git">git tag -a v1.0.0 -m &#x27;version 1.0.0&#x27;<br></code></pre></td></tr></table></figure>
 
-<ul>
-<li>-a：此选项通常在复制目录时使用，它保留链接、文件属性，并复制目录下的所有内容。其作用等于dpR参数组合。</li>
-<li>-d：复制时保留链接。这里所说的链接相当于 Windows 系统中的快捷方式。</li>
-<li>-f：覆盖已经存在的目标文件而不给出提示。</li>
-<li>-i：与 <strong>-f</strong> 选项相反，在覆盖目标文件之前给出提示，要求用户确认是否覆盖，回答 <strong>y</strong> 时目标文件将被覆盖。</li>
-<li>-p：除复制文件的内容外，还把修改时间和访问权限也复制到新文件中。</li>
-<li>-r：若给出的源文件是一个目录文件，此时将复制该目录下所有的子目录和文件。</li>
-<li>-l：不复制文件，只是生成链接文件。</li>
-</ul>
-<div class="note note-danger">
-            <p>用户使用该指令复制目录时，必须使用参数 <strong>-r</strong> 或者 <strong>-R</strong> 。</p>
-          </div>
+<p><strong>后期打标签</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs git">获取历史提交记录：<br>git log --pretty=oneline<br>补上标签：<br>git tag -a v1.0.0 9fceb02(校验和)<br></code></pre></td></tr></table></figure>
 
-<h4 id="重命名与移动：mv"><a href="#重命名与移动：mv" class="headerlink" title="重命名与移动：mv"></a>重命名与移动：mv</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell">将原文件名改为新文件名:<br>mv old_name(文件) new_name(文件)<br>将file_name文件移动到directory目录中:<br>mv file_name(文件) directory(目录)<br>若new_directory目录不存在，将old_directory重命名为new_directory;若new_directory目录已存在，将old_directory移动到new_directory目录下:<br>mv old_directory(目录) new_directory(目录)<br></code></pre></td></tr></table></figure>
+<p><strong>列出标签</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs git">git tag<br>git tag -l<br>git tag --list<br></code></pre></td></tr></table></figure>
 
-<ul>
-<li><strong>-b</strong>: 当目标文件或目录存在时，在执行覆盖前，会为其创建一个备份。</li>
-<li><strong>-i</strong>: 如果指定移动的源目录或文件与目标的目录或文件同名，则会先询问是否覆盖旧文件，输入 y 表示直接覆盖，输入 n 表示取消该操作。</li>
-<li><strong>-f</strong>: 如果指定移动的源目录或文件与目标的目录或文件同名，不会询问，直接覆盖旧文件。</li>
-<li><strong>-n</strong>: 不要覆盖任何已存在的文件或目录。</li>
-<li><strong>-u</strong>：当源文件比目标文件新或者目标文件不存在时，才执行移动操作。</li>
-</ul>
-<h4 id="服务器与本地计算机之间互相传送文件：scp"><a href="#服务器与本地计算机之间互相传送文件：scp" class="headerlink" title="服务器与本地计算机之间互相传送文件：scp"></a>服务器与本地计算机之间互相传送文件：scp</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">远程服务器-&gt;本地:<br>scp ubuntu@xx.xxx.xxx.xx:/home/ubuntu/a.log /home/space<br>本地-&gt;远程服务器:<br>scp /home/space/a.txt ubuntu@xx.xxx.xxx.xx:/home/ubuntu/space<br></code></pre></td></tr></table></figure>
+<p><strong>推送标签到github</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs git">git push origin tag<br>git push origin --tags	--推送多个标签<br></code></pre></td></tr></table></figure>
 
-<h4 id="新建文件、文件夹"><a href="#新建文件、文件夹" class="headerlink" title="新建文件、文件夹"></a>新建文件、文件夹</h4><p><strong>touch、mkdir</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">touch file.txt    --新建.txt文件<br>mkdir file    --新建文件夹<br></code></pre></td></tr></table></figure>
+<p><strong>删除标签</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs git">git tag -d v1.0.0    --删除本地标签<br>git push origin --delete v1.0.0    --删除远程标签<br>git push &lt;remote&gt; :refs/tags/&lt;tagname&gt;    --删除远程标签<br></code></pre></td></tr></table></figure>
 
-<p><strong>重定向操作符创建文件</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">&gt; </span><span class="language-bash">file.txt    --文件不存在则创建，存在则覆盖</span><br><span class="hljs-meta prompt_">&gt;</span><span class="language-bash">&gt; file.txt    --文件不存在则创建，存在则添加到已存在的文件中</span><br></code></pre></td></tr></table></figure>
+<p><strong>检出标签</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs git">git checkout v1.0.0<br></code></pre></td></tr></table></figure>
+
+<h3 id="忽略某些不想提交的文件"><a href="#忽略某些不想提交的文件" class="headerlink" title="忽略某些不想提交的文件"></a>忽略某些不想提交的文件</h3><p><strong>在项目目录下创建.gitignore文件</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">vim .gitignore<br></code></pre></td></tr></table></figure>
+
+<p>添加忽略的文件名或后缀</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs txt">.idea<br>.gitignore<br>*.iml<br></code></pre></td></tr></table></figure>
+
+<p><strong>忽略文件已上传解决办法</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs git"># 删除缓存<br>git rm -r --cache .<br><br># 查看状态<br>git status<br><br># 将更改提交到本地暂存区 <br>git add .<br><br># 提交本地库<br>git commit -m &#x27;忽略 .idea .gitignore *.iml&#x27;<br><br># 上传服务器<br>git push origin main<br></code></pre></td></tr></table></figure>
+
+<h3 id="撤销commit"><a href="#撤销commit" class="headerlink" title="撤销commit"></a>撤销commit</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs git"># 撤销commit<br>git reset --soft HEAD^<br><br># 修改commit注释<br>git commit --amend<br></code></pre></td></tr></table></figure>
+
+<p><strong>参数</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs git"># --mixed<br>不删除工作空间改动代码，撤销commit，并且撤销git add . 操作<br>这个为默认参数,git reset --mixed HEAD^ 和 git reset HEAD^ 效果是一样的<br><br># --soft<br>不删除工作空间改动代码，撤销commit，不撤销git add . <br><br># --hard<br>删除工作空间改动代码，撤销commit，撤销git add . <br>注意完成这个操作后，就恢复到了上一次的commit状态<br><br># HEAD^<br>HEAD^的意思是上一个版本，也可以写成HEAD~1<br>如果进行了2次commit，想都撤回，可以使用HEAD~2<br></code></pre></td></tr></table></figure>
+
+<h3 id="恢复到指定版本"><a href="#恢复到指定版本" class="headerlink" title="恢复到指定版本"></a>恢复到指定版本</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs git"># 查看提交日志<br>git log<br><br># 恢复到指定版本<br>git reset --hard 版本号<br></code></pre></td></tr></table></figure>
 
 
                 
@@ -340,7 +338,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
+  <a href="/categories/git/" class="category-chain-item">git</a>
   
   
 
@@ -355,7 +353,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Linux/">#Linux</a>
+        <a href="/tags/git/">#git</a>
       
     </div>
   
@@ -369,9 +367,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/01/30/go%E8%AF%BB%E5%86%99csv%E6%96%87%E4%BB%B6/" title="go读写csv文件">
+                      <a href="/2023/01/31/go%E8%AF%AD%E8%A8%80%E7%9A%84slog%E6%97%A5%E5%BF%97%E5%BA%93/" title="go语言的slog日志库">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">go读写csv文件</span>
+                        <span class="hidden-mobile">go语言的slog日志库</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -379,8 +377,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/10/27/docker%E5%AD%A6%E4%B9%A0%E3%80%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/" title="docker学习、使用笔记">
-                        <span class="hidden-mobile">docker学习、使用笔记</span>
+                      <a href="/2023/01/30/go%E8%AF%BB%E5%86%99csv%E6%96%87%E4%BB%B6/" title="go读写csv文件">
+                        <span class="hidden-mobile">go读写csv文件</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

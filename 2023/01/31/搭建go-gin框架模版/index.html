@@ -1,0 +1,640 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.png">
+  <link rel="icon" href="/img/icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="1yao">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="搭建go-gin框架模版准备阶段新建一个gin-model文件夹1mkdir gin-model  初始化go mod1go mod init github.com&#x2F;xxx&#x2F;gin-model  新建一个main.go程序12cd gin-modeltouch main.go  在编辑器中打开gin-model文件夹 安装Gin框架的库1go get -u github.com&#x2F;gin-gonic">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搭建go-gin框架模版">
+<meta property="og:url" content="http://example.com/2023/01/31/%E6%90%AD%E5%BB%BAgo-gin%E6%A1%86%E6%9E%B6%E6%A8%A1%E7%89%88/index.html">
+<meta property="og:site_name" content="1yao的博客">
+<meta property="og:description" content="搭建go-gin框架模版准备阶段新建一个gin-model文件夹1mkdir gin-model  初始化go mod1go mod init github.com&#x2F;xxx&#x2F;gin-model  新建一个main.go程序12cd gin-modeltouch main.go  在编辑器中打开gin-model文件夹 安装Gin框架的库1go get -u github.com&#x2F;gin-gonic">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-01-31T06:27:24.000Z">
+<meta property="article:modified_time" content="2023-02-02T08:23:21.229Z">
+<meta property="article:author" content="1yao">
+<meta property="article:tag" content="golang">
+<meta property="article:tag" content="gin">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>搭建go-gin框架模版 - 1yao的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>1yao</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/shouye.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="搭建go-gin框架模版"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-01-31 14:27" pubdate>
+          2023年1月31日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          35 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">搭建go-gin框架模版</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="搭建go-gin框架模版"><a href="#搭建go-gin框架模版" class="headerlink" title="搭建go-gin框架模版"></a>搭建go-gin框架模版</h2><h3 id="准备阶段"><a href="#准备阶段" class="headerlink" title="准备阶段"></a>准备阶段</h3><h4 id="新建一个gin-model文件夹"><a href="#新建一个gin-model文件夹" class="headerlink" title="新建一个gin-model文件夹"></a>新建一个gin-model文件夹</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">mkdir gin-model<br></code></pre></td></tr></table></figure>
+
+<h4 id="初始化go-mod"><a href="#初始化go-mod" class="headerlink" title="初始化go mod"></a>初始化go mod</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">go</span> mod init github.com/xxx/gin-model<br></code></pre></td></tr></table></figure>
+
+<h4 id="新建一个main-go程序"><a href="#新建一个main-go程序" class="headerlink" title="新建一个main.go程序"></a>新建一个main.go程序</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd gin-model<br>touch main.go<br></code></pre></td></tr></table></figure>
+
+<p><strong>在编辑器中打开gin-model文件夹</strong></p>
+<h4 id="安装Gin框架的库"><a href="#安装Gin框架的库" class="headerlink" title="安装Gin框架的库"></a>安装Gin框架的库</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">go</span> get -u github.com/gin-gonic/gin<br></code></pre></td></tr></table></figure>
+
+<p><strong>main.go</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main<br><br><span class="hljs-keyword">import</span> (<br>	<span class="hljs-string">&quot;github.com/gin-gonic/gin&quot;</span><br>	<span class="hljs-string">&quot;github.com/gookit/slog&quot;</span><br>)<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>	r := gin.Default()<br>	r.GET(<span class="hljs-string">&quot;/ping&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(c *gin.Context)</span></span> &#123;<br>		c.JSON(<span class="hljs-number">200</span>, gin.H&#123;<br>			<span class="hljs-string">&quot;message&quot;</span>: <span class="hljs-string">&quot;Hello World!&quot;</span>,<br>		&#125;)<br>	&#125;)<br>	r.Run()<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>启动项目&amp;&amp;测试</strong></p>
+<p>打开<code>http://localhost:8080/ping</code>：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><span class="hljs-attr">&quot;message&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;Hello World!&quot;</span><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="配置初始化-amp-全局变量"><a href="#配置初始化-amp-全局变量" class="headerlink" title="配置初始化&amp;全局变量"></a>配置初始化&amp;全局变量</h3><p><strong>使用 <a href="https://link.juejin.cn/?target=https://github.com/spf13/viper">viper</a> 作为配置管理方案，支持 JSON、TOML、YAML、HCL、envfile、Java properties 等多种格式的配置文件，并且能够监听配置文件的修改，进行热重载。</strong></p>
+<h4 id="安装viper库"><a href="#安装viper库" class="headerlink" title="安装viper库"></a>安装viper库</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">go</span> get -u github.com/spf13/viper<br></code></pre></td></tr></table></figure>
+
+<h4 id="编写配置文件"><a href="#编写配置文件" class="headerlink" title="编写配置文件"></a>编写配置文件</h4><p>在<code>gin-model</code>文件夹下新建<code>config</code>文件夹，在<code>config</code>文件夹下新建<code>config.yaml</code>文件</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">config:</span> <span class="hljs-comment"># 项目基本配置</span><br>  <span class="hljs-attr">application:</span><br>    <span class="hljs-comment"># local开发环境 test测试环境</span><br>    <span class="hljs-attr">env:</span> <span class="hljs-string">local</span> <br>    <span class="hljs-attr">port:</span> <span class="hljs-number">8080</span> <span class="hljs-comment"># 服务监听端口号</span><br>    <span class="hljs-attr">name:</span> <span class="hljs-string">gin-model</span> <span class="hljs-comment"># 项目名称</span><br>    <span class="hljs-attr">url:</span> <span class="hljs-string">http://localhost</span> <span class="hljs-comment"># 项目域名</span><br>  <span class="hljs-attr">database:</span><br>    <span class="hljs-comment"># 数据库类型 mysql，sqlite3， postgres</span><br>    <span class="hljs-attr">driver:</span> <span class="hljs-string">mysql</span><br>    <span class="hljs-comment"># 数据库连接字符串 mysql</span><br>    <span class="hljs-attr">source:</span> <span class="hljs-string">root:12345678@tcp(127.0.0.1:3306)/test?charset=utf8&amp;parseTime=True&amp;loc=Local&amp;timeout=1000ms</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="编写配置结构体"><a href="#编写配置结构体" class="headerlink" title="编写配置结构体"></a>编写配置结构体</h4><p>在<code>gin-model</code>文件夹下新建<code>common</code>文件夹，在<code>common</code>下新建<code>config</code>文件夹，用于存放所有配置对应的结构体。</p>
+<p>在<code>/common/config</code>路径下新建<code>config.go</code>文件，定义<code>Config</code>结构体，其<code>Settings</code>属性对应<code>config.yaml</code>中的<code>settings</code>。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> config<br><br><span class="hljs-comment">// config.yaml文件中的基本配置</span><br><span class="hljs-keyword">type</span> Config <span class="hljs-keyword">struct</span> &#123;<br>	Settings Settings <span class="hljs-string">`mapstructure:&quot;settings&quot; json:&quot;settings&quot; yaml:&quot;settings&quot;`</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>定义<code>Settings</code>结构体，其<code>Application</code>属性对应<code>config.yaml</code>中的<code>application</code>。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> config<br><br><span class="hljs-comment">// 对应config.yaml文件中的settings</span><br><span class="hljs-keyword">type</span> Settings <span class="hljs-keyword">struct</span> &#123;<br>	Application Application <span class="hljs-string">`mapstructure:&quot;application&quot; json:&quot;application&quot; yaml:&quot;application&quot;`</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>定义 <code>Application</code> 结构体，其所有属性分别对应 <code>config.yaml</code> 中 <code>application</code> 下的所有配置</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> config<br><br><span class="hljs-comment">// 对应config.yaml文件中的application</span><br><span class="hljs-keyword">type</span> Application <span class="hljs-keyword">struct</span> &#123;<br>	Env  <span class="hljs-type">string</span> <span class="hljs-string">`mapstructure:&quot;env&quot; json:&quot;env&quot; yaml:&quot;env&quot;`</span><br>	Port <span class="hljs-type">string</span> <span class="hljs-string">`mapstructure:&quot;port&quot; json:&quot;port&quot; yaml:&quot;port&quot;`</span><br>	Name <span class="hljs-type">string</span> <span class="hljs-string">`mapstructure:&quot;name&quot; json:&quot;name&quot; yaml:&quot;name&quot;`</span><br>	Url  <span class="hljs-type">string</span> <span class="hljs-string">`mapstructure:&quot;url&quot; json:&quot;url&quot; yaml:&quot;url&quot;`</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div class="note note-danger">
+            <p>配置结构体中 <code>mapstructure</code> 标签需对应 <code>config.yaml</code> 中的配置名称， <code>viper</code> 会根据标签 value 值把 <code>config.yaml</code> 的数据赋予给结构体</p>
+          </div>
+
+<h4 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h4><p>在<code>/common</code>路径下新建<code>/global/app.go</code>，定义<code>Application</code>结构体，用来存放一些项目启动时的变量，便于调用。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> global<br><br><span class="hljs-keyword">import</span> (<br>	<span class="hljs-string">&quot;github.com/iyaoo/go/gin-model/common/config&quot;</span><br>	<span class="hljs-string">&quot;github.com/spf13/viper&quot;</span><br>)<br><br><span class="hljs-keyword">type</span> Application <span class="hljs-keyword">struct</span> &#123;<br>	ConfigViper *viper.Viper<br>	Config      config.Config<br>&#125;<br><br><span class="hljs-keyword">var</span> App = <span class="hljs-built_in">new</span>(Application)<br></code></pre></td></tr></table></figure>
+
+<h4 id="使用-viper-载入配置"><a href="#使用-viper-载入配置" class="headerlink" title="使用 viper 载入配置"></a>使用 viper 载入配置</h4><p>在<code>common</code>路径下新建<code>bootstrap/config.go</code> 文件，</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> bootstrap<br><br><span class="hljs-keyword">import</span> (<br>	<span class="hljs-string">&quot;fmt&quot;</span><br>	<span class="hljs-string">&quot;os&quot;</span><br><br>	<span class="hljs-string">&quot;github.com/fsnotify/fsnotify&quot;</span><br>	<span class="hljs-string">&quot;github.com/iyaoo/go/gin-model/common/global&quot;</span><br>	<span class="hljs-string">&quot;github.com/spf13/viper&quot;</span><br>)<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">InitConfig</span><span class="hljs-params">()</span></span> *viper.Viper &#123;<br>	<span class="hljs-comment">// 设置配置路径</span><br>	configFile := <span class="hljs-string">&quot;config/config.yaml&quot;</span><br>	<span class="hljs-comment">// 生产环境可以通过设置环境变量来改变配置文件路径</span><br>	<span class="hljs-keyword">if</span> configEnv := os.Getenv(<span class="hljs-string">&quot;VIPER_CONFIG&quot;</span>); configEnv != <span class="hljs-string">&quot;&quot;</span> &#123;<br>		configFile = configEnv<br>	&#125;<br><br>	<span class="hljs-comment">//初始化 viper</span><br>	v := viper.New()<br>	v.SetConfigFile(configFile)<br>	v.SetConfigType(<span class="hljs-string">&quot;yaml&quot;</span>)<br>	<span class="hljs-keyword">if</span> err := v.ReadInConfig(); err != <span class="hljs-literal">nil</span> &#123;<br>		<span class="hljs-built_in">panic</span>(fmt.Errorf(<span class="hljs-string">&quot;read config failed: %s&quot;</span>, err))<br>	&#125;<br><br>	<span class="hljs-comment">//监听配置文件</span><br>	v.WatchConfig()<br>	v.OnConfigChange(<span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(in fsnotify.Event)</span></span> &#123;<br>		fmt.Println(<span class="hljs-string">&quot;config file changed:&quot;</span>, in.Name)<br>		<span class="hljs-comment">//重载配置</span><br>		<span class="hljs-keyword">if</span> err := v.Unmarshal(&amp;global.App.Config); err != <span class="hljs-literal">nil</span> &#123;<br>			fmt.Println(err)<br>		&#125;<br>	&#125;)<br>	<span class="hljs-comment">// 将配置赋值给全局变量</span><br>	<span class="hljs-keyword">if</span> err := v.Unmarshal(&amp;global.App.Config); err != <span class="hljs-literal">nil</span> &#123;<br>		fmt.Println(err)<br>	&#125;<br><br>	<span class="hljs-keyword">return</span> v<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="初始化配置"><a href="#初始化配置" class="headerlink" title="初始化配置"></a>初始化配置</h4><p>修改<code>main.go</code>文件</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main<br><br><span class="hljs-keyword">import</span> (<br>	<span class="hljs-string">&quot;github.com/gin-gonic/gin&quot;</span><br>	<span class="hljs-string">&quot;github.com/iyaoo/go/gin-model/common/bootstrap&quot;</span><br>	<span class="hljs-string">&quot;github.com/iyaoo/go/gin-model/common/global&quot;</span><br>)<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">UseGin</span><span class="hljs-params">()</span></span> &#123;<br>	<span class="hljs-comment">//初始化配置</span><br>	bootstrap.InitConfig()<br><br>	r := gin.Default()<br><br>	<span class="hljs-comment">//测试路由</span><br>	r.GET(<span class="hljs-string">&quot;&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(c *gin.Context)</span></span> &#123;<br>		c.JSON(<span class="hljs-number">200</span>, gin.H&#123;<br>			<span class="hljs-string">&quot;message&quot;</span>: <span class="hljs-string">&quot;Hello World!&quot;</span>,<br>		&#125;)<br>	&#125;)<br><br>	<span class="hljs-comment">//启动服务器</span><br>	r.Run(<span class="hljs-string">&quot;:&quot;</span> + global.App.Config.Settings.Application.Port)<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>	UseGin()<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>执行<code>go run main.go</code>,项目启动后，服务器监听的端口为配置文件中的端口号。</p>
+<h3 id="日志初始化"><a href="#日志初始化" class="headerlink" title="日志初始化"></a>日志初始化</h3><p>日志是框架中必不可少的，平时代码调试，线上 Bug 分析都离不开它。这里将使用 <a target="_blank" rel="noopener" href="https://github.com/gookit/slog">slog</a> 作为日志库。</p>
+<h4 id="安装slog库"><a href="#安装slog库" class="headerlink" title="安装slog库"></a>安装slog库</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">go</span> get -u github.com/gookit/slog<br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/golang/" class="category-chain-item">golang</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/golang/">#golang</a>
+      
+        <a href="/tags/gin/">#gin</a>
+      
+    </div>
+  
+</div>
+
+
+              
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/01/31/go%E8%AF%AD%E8%A8%80%E7%9A%84slog%E6%97%A5%E5%BF%97%E5%BA%93/" title="go语言的slog日志库">
+                        <span class="hidden-mobile">go语言的slog日志库</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
