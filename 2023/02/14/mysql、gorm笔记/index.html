@@ -16,22 +16,24 @@
   <meta name="author" content="1yao">
   <meta name="keywords" content="">
   
-    <meta name="description" content="go语言中的slog日志库下载安装slog库:123import(  &quot;github.com&#x2F;gookit&#x2F;slog&quot;)">
+    <meta name="description" content="mysql、gorm笔记mysql基本操作创建表1234567891011121314151617181920create table user (	id int not null auto_increment comment &amp;#x27;主键&amp;#x27;,	name varchar(10) not null default &amp;#x27;&amp;#x27; comment &amp;#x27;姓名&amp;#x27;,">
 <meta property="og:type" content="article">
-<meta property="og:title" content="go语言的slog日志库">
-<meta property="og:url" content="http://example.com/2023/01/31/go%E8%AF%AD%E8%A8%80%E7%9A%84slog%E6%97%A5%E5%BF%97%E5%BA%93/index.html">
+<meta property="og:title" content="mysql、gorm笔记">
+<meta property="og:url" content="http://example.com/2023/02/14/mysql%E3%80%81gorm%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="1yao的博客">
-<meta property="og:description" content="go语言中的slog日志库下载安装slog库:123import(  &quot;github.com&#x2F;gookit&#x2F;slog&quot;)">
+<meta property="og:description" content="mysql、gorm笔记mysql基本操作创建表1234567891011121314151617181920create table user (	id int not null auto_increment comment &amp;#x27;主键&amp;#x27;,	name varchar(10) not null default &amp;#x27;&amp;#x27; comment &amp;#x27;姓名&amp;#x27;,">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-01-31T05:51:51.000Z">
-<meta property="article:modified_time" content="2023-02-13T11:31:31.688Z">
+<meta property="article:published_time" content="2023-02-14T03:17:29.000Z">
+<meta property="article:modified_time" content="2023-02-14T09:23:37.493Z">
 <meta property="article:author" content="1yao">
-<meta property="article:tag" content="golang">
+<meta property="article:tag" content="mysql">
+<meta property="article:tag" content="gorm">
+<meta property="article:tag" content="go">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>go语言的slog日志库 - 1yao的博客</title>
+  <title>mysql、gorm笔记 - 1yao的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +198,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="go语言的slog日志库"></span>
+            <span id="subtitle" data-typed-text="mysql、gorm笔记"></span>
           
         </div>
 
@@ -207,8 +209,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-01-31 13:51" pubdate>
-          2023年1月31日 下午
+        <time datetime="2023-02-14 11:17" pubdate>
+          2023年2月14日 上午
         </time>
       </span>
     
@@ -219,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          68 字
+          2.4k 字
         
       </span>
     
@@ -230,7 +232,7 @@
         
         
         
-          1 分钟
+          20 分钟
         
       </span>
     
@@ -278,13 +280,35 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">go语言的slog日志库</h1>
+            <h1 style="display: none">mysql、gorm笔记</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="go语言中的slog日志库"><a href="#go语言中的slog日志库" class="headerlink" title="go语言中的slog日志库"></a>go语言中的slog日志库</h2><h3 id="下载安装slog库"><a href="#下载安装slog库" class="headerlink" title="下载安装slog库:"></a>下载安装slog库:</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">import</span>(<br>  <span class="hljs-string">&quot;github.com/gookit/slog&quot;</span><br>)<br></code></pre></td></tr></table></figure>
+                <h2 id="mysql、gorm笔记"><a href="#mysql、gorm笔记" class="headerlink" title="mysql、gorm笔记"></a>mysql、gorm笔记</h2><h3 id="mysql基本操作"><a href="#mysql基本操作" class="headerlink" title="mysql基本操作"></a>mysql基本操作</h3><h4 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs mysql">create table user (<br>	id int not null auto_increment comment &#x27;主键&#x27;,<br>	name varchar(10) not null default &#x27;&#x27; comment &#x27;姓名&#x27;,<br>	password varchar(50) not null default &#x27;123&#x27; comment &#x27;密码，默认值为123&#x27;,<br>	gender char(3) default &#x27;0&#x27; check (gender in(&#x27;0&#x27;,&#x27;1&#x27;,&#x27;2&#x27;)) comment &#x27;性别，0:未知 1:男 2:女&#x27;,<br>	phone varchar(11) default &#x27;&#x27; comment &#x27;11位手机号码&#x27;,<br>	email varchar(128) default &#x27;&#x27; comment &#x27;邮箱&#x27;,<br>	identity varchar(128) default &#x27;&#x27; comment &#x27;身份证号&#x27;,<br>	client_ip varchar(128) default &#x27;&#x27; comment &#x27;连接ip地址&#x27;,<br>	client_post varchar(128) default &#x27;&#x27; comment &#x27;连接端口号&#x27;,<br>	login_time datetime(3) default now(3) comment &#x27;登陆时间&#x27;,<br>	logout_time datetime(3) default now(3) comment &#x27;下线时间&#x27;,<br>	is_login tinyint(1) default 0 comment &#x27;在线状态，0:离线 1:在线&#x27;,<br>	heartbeat_time varchar(128) default &#x27;&#x27; comment &#x27;心跳速率&#x27;,<br>	device_info varchar(128) default &#x27;&#x27; comment &#x27;设备信息&#x27;,<br>	created_at datetime(3) default null comment &#x27;创建时间&#x27;,<br>	updated_at datetime(3) default null comment &#x27;更新时间&#x27;,<br>	deleted_at datetime(3) default null comment &#x27;删除时间&#x27;,<br>	primary key (id)<br>)engine=InnoDB default charset=utf8;<br></code></pre></td></tr></table></figure>
 
+<h4 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">drop table table_name;<br></code></pre></td></tr></table></figure>
+
+<h3 id="修改表信息"><a href="#修改表信息" class="headerlink" title="修改表信息"></a>修改表信息</h3><h4 id="修改表名"><a href="#修改表名" class="headerlink" title="修改表名"></a>修改表名</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs mysql">alter table table_oldname rename to table_newname;<br>eg: alter table user rename to user_info;<br></code></pre></td></tr></table></figure>
+
+<h4 id="修改字段名"><a href="#修改字段名" class="headerlink" title="修改字段名"></a>修改字段名</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs mysql">alter table table_name change field_oldname field_newname type;<br>eg: alter table user change is_login is_logout tinyint(1);<br></code></pre></td></tr></table></figure>
+
+<h4 id="修改字段属性"><a href="#修改字段属性" class="headerlink" title="修改字段属性"></a>修改字段属性</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs mysql">alter table table_name modify column fieldname type not null default &#x27;&#x27; comment &#x27;字段信息&#x27;;<br>eg: alter table user modify column name varchar(128) not null default &#x27;&#x27; comment &#x27;姓名&#x27;;<br></code></pre></td></tr></table></figure>
+
+<h4 id="显示表全部信息"><a href="#显示表全部信息" class="headerlink" title="显示表全部信息"></a>显示表全部信息</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">show create table table_name;<br></code></pre></td></tr></table></figure>
+
+<h4 id="设置性别约束"><a href="#设置性别约束" class="headerlink" title="设置性别约束"></a>设置性别约束</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs mysql">create table user(<br>	...<br>	gender char(3) default &#x27;0&#x27; check (gender in(&#x27;0&#x27;,&#x27;1&#x27;,&#x27;2&#x27;)) comment &#x27;性别，0:未知 1:男 2:女&#x27;,<br>	...<br>);<br></code></pre></td></tr></table></figure>
+
+<h3 id="gorm"><a href="#gorm" class="headerlink" title="gorm"></a>gorm</h3><h4 id="gorm映射mysql数据表"><a href="#gorm映射mysql数据表" class="headerlink" title="gorm映射mysql数据表"></a>gorm映射mysql数据表</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">type</span> TableName <span class="hljs-keyword">struct</span>&#123;<br>    ID            <span class="hljs-type">int</span>       <span class="hljs-string">`json:&quot;id&quot; gorm:&quot;column:id;primaryKey;autoIncrement;comment:自增主键id&quot;`</span><br>    Name          <span class="hljs-type">string</span>    <span class="hljs-string">`json:&quot;name&quot; gorm:&quot;column:name;comment:用户姓名&quot;`</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>go在使用结构体映射mysql数据表时：column来对应mysql表中中的字段名，primaryKey对应主键，autoIncrement对应自增属性，comment对应字段注释，index对应索引。</p>
+<p>还有size、not null、default等属性也可以一一对应</p>
+<p>eg: <code>gorm:&quot;column:id;size:4;primaryKey;autoIncrement;not null;default:0;comment:自增主键id;index:index_name&quot;</code></p>
+</blockquote>
+<div class="note note-info">
+            <p>使用gorm时，进行修改增改操作时，尽量重新声明结构体来进行操作，和查询使用结构体分离开来。</p>
+          </div>
 
                 
               </div>
@@ -303,7 +327,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/golang/" class="category-chain-item">golang</a>
+  <a href="/categories/mysql/" class="category-chain-item">mysql</a>
   
   
 
@@ -318,7 +342,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/golang/">#golang</a>
+        <a href="/tags/mysql/">#mysql</a>
+      
+        <a href="/tags/gorm/">#gorm</a>
+      
+        <a href="/tags/go/">#go</a>
       
     </div>
   
@@ -332,18 +360,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/01/31/%E6%90%AD%E5%BB%BAgo-gin%E6%A1%86%E6%9E%B6%E6%A8%A1%E7%89%88/" title="搭建go-gin框架模版">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">搭建go-gin框架模版</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/01/31/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="git常用命令">
-                        <span class="hidden-mobile">git常用命令</span>
+                      <a href="/2023/01/31/%E6%90%AD%E5%BB%BAgo-gin%E6%A1%86%E6%9E%B6%E6%A8%A1%E7%89%88/" title="搭建go-gin框架模版">
+                        <span class="hidden-mobile">搭建go-gin框架模版</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
