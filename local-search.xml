@@ -4,6 +4,27 @@
   
   
   <entry>
+    <title>iterm2命令</title>
+    <link href="/2023/02/22/iterm2%E5%91%BD%E4%BB%A4/"/>
+    <url>/2023/02/22/iterm2%E5%91%BD%E4%BB%A4/</url>
+    
+    <content type="html"><![CDATA[<h2 id="iterm2命令"><a href="#iterm2命令" class="headerlink" title="iterm2命令"></a>iterm2命令</h2><h3 id="mac配置iterm2"><a href="#mac配置iterm2" class="headerlink" title="mac配置iterm2"></a><a href="https://juejin.cn/post/6844904144277340168">mac配置iterm2</a></h3><p><a href="https://zhuanlan.zhihu.com/p/435518571">参考文章</a></p><h3 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">command</span> + enter 进入与返回全屏模式<br><span class="hljs-built_in">command</span> + t 新建标签<br><span class="hljs-built_in">command</span> + w 关闭标签<br><span class="hljs-built_in">command</span> + 数字 <span class="hljs-built_in">command</span> + 左右方向键    切换标签<br><span class="hljs-built_in">command</span> + enter 切换全屏<br><span class="hljs-built_in">command</span> + f 查找<br><span class="hljs-built_in">command</span> + d 水平分屏<br><span class="hljs-built_in">command</span> + <span class="hljs-built_in">shift</span> + d 垂直分屏<br><span class="hljs-built_in">command</span> + option + 方向键 <span class="hljs-built_in">command</span> + [ 或 <span class="hljs-built_in">command</span> + ]    切换屏幕<br><span class="hljs-built_in">command</span> + ; 查看历史命令<br><span class="hljs-built_in">command</span> + <span class="hljs-built_in">shift</span> + h 查看剪贴板历史<br>ctrl + u    清除当前行<br>ctrl + l    清屏<br>ctrl + a    到行首<br>ctrl + e    到行尾<br>ctrl + f/b  前进后退<br>ctrl + p    上一条命令<br>ctrl + r    搜索命令历史<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>iterm2</tag>
+      
+      <tag>bash</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>brew使用命令</title>
     <link href="/2023/02/22/brew%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
     <url>/2023/02/22/brew%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
