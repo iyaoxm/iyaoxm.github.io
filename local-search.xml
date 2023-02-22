@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>brew使用命令</title>
+    <link href="/2023/02/22/brew%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <url>/2023/02/22/brew%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    
+    <content type="html"><![CDATA[<h2 id="brew使用命令"><a href="#brew使用命令" class="headerlink" title="brew使用命令"></a>brew使用命令</h2><ul><li>查看brew的帮助</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">brew –<span class="hljs-built_in">help</span><br></code></pre></td></tr></table></figure><ul><li>安装软件</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">brew install git<br></code></pre></td></tr></table></figure><ul><li>卸载软件</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">brew uninstall git<br></code></pre></td></tr></table></figure><ul><li>搜索软件</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">brew search git<br></code></pre></td></tr></table></figure><ul><li>显示已经安装软件列表</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">brew list<br></code></pre></td></tr></table></figure><ul><li>更新软件，把所有的Formula目录更新，并且会对本机已经安装并有更新的软件用*标明</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">brew update<br></code></pre></td></tr></table></figure><ul><li>更新某具体软件</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">brew upgrade git<br></code></pre></td></tr></table></figure><ul><li>显示软件内容信息</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">brew info git<br></code></pre></td></tr></table></figure><ul><li>用浏览器打开</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">brew home<br></code></pre></td></tr></table></figure><ul><li>显示包依赖</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">brew deps <br></code></pre></td></tr></table></figure><ul><li>显示包的依赖树</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">brew deps --installed --tree<br></code></pre></td></tr></table></figure><ul><li>启动web服务器，可以通过浏览器访问<a href="http://localhost:4567/">http://localhost:4567/</a> 来同网页来管理包</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">brew server<br></code></pre></td></tr></table></figure><ul><li>删除程序，和upgrade一样，单个软件删除和所有程序老版删除</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">brew cleanup git <br>brew cleanup<br></code></pre></td></tr></table></figure><ul><li>查看那些已安装的程序需要更新</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">brew outdated<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>brew</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>mysql、gorm笔记</title>
     <link href="/2023/02/14/mysql%E3%80%81gorm%E7%AC%94%E8%AE%B0/"/>
     <url>/2023/02/14/mysql%E3%80%81gorm%E7%AC%94%E8%AE%B0/</url>
