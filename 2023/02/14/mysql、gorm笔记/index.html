@@ -24,7 +24,7 @@
 <meta property="og:description" content="mysql、gorm笔记mysql基本操作创建表1234567891011121314151617181920create table user (	id int not null auto_increment comment &amp;#x27;主键&amp;#x27;,	name varchar(10) not null default &amp;#x27;&amp;#x27; comment &amp;#x27;姓名&amp;#x27;,">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-02-14T03:17:29.000Z">
-<meta property="article:modified_time" content="2023-02-22T11:10:08.151Z">
+<meta property="article:modified_time" content="2023-02-27T07:57:56.710Z">
 <meta property="article:author" content="1yao">
 <meta property="article:tag" content="mysql">
 <meta property="article:tag" content="gorm">
@@ -221,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.4k 字
+          3.1k 字
         
       </span>
     
@@ -232,7 +232,7 @@
         
         
         
-          20 分钟
+          26 分钟
         
       </span>
     
@@ -289,7 +289,9 @@
 
 <h4 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">drop table table_name;<br></code></pre></td></tr></table></figure>
 
-<h3 id="修改表信息"><a href="#修改表信息" class="headerlink" title="修改表信息"></a>修改表信息</h3><h4 id="修改表名"><a href="#修改表名" class="headerlink" title="修改表名"></a>修改表名</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs mysql">alter table table_oldname rename to table_newname;<br>eg: alter table user rename to user_info;<br></code></pre></td></tr></table></figure>
+<h4 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">drop database db_name;<br></code></pre></td></tr></table></figure>
+
+<h4 id="mysqldump"><a href="#mysqldump" class="headerlink" title="mysqldump"></a>mysqldump</h4><h3 id="修改表信息"><a href="#修改表信息" class="headerlink" title="修改表信息"></a>修改表信息</h3><h4 id="修改表名"><a href="#修改表名" class="headerlink" title="修改表名"></a>修改表名</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs mysql">alter table table_oldname rename to table_newname;<br>eg: alter table user rename to user_info;<br></code></pre></td></tr></table></figure>
 
 <h4 id="修改字段名"><a href="#修改字段名" class="headerlink" title="修改字段名"></a>修改字段名</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs mysql">alter table table_name change field_oldname field_newname type;<br>eg: alter table user change is_login is_logout tinyint(1);<br></code></pre></td></tr></table></figure>
 
@@ -298,6 +300,8 @@
 <h4 id="显示表全部信息"><a href="#显示表全部信息" class="headerlink" title="显示表全部信息"></a>显示表全部信息</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">show create table table_name;<br></code></pre></td></tr></table></figure>
 
 <h4 id="设置性别约束"><a href="#设置性别约束" class="headerlink" title="设置性别约束"></a>设置性别约束</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs mysql">create table user(<br>	...<br>	gender char(3) default &#x27;0&#x27; check (gender in(&#x27;0&#x27;,&#x27;1&#x27;,&#x27;2&#x27;)) comment &#x27;性别，0:未知 1:男 2:女&#x27;,<br>	...<br>);<br></code></pre></td></tr></table></figure>
+
+
 
 <h3 id="gorm"><a href="#gorm" class="headerlink" title="gorm"></a>gorm</h3><h4 id="gorm映射mysql数据表"><a href="#gorm映射mysql数据表" class="headerlink" title="gorm映射mysql数据表"></a>gorm映射mysql数据表</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">type</span> TableName <span class="hljs-keyword">struct</span>&#123;<br>    ID            <span class="hljs-type">int</span>       <span class="hljs-string">`json:&quot;id&quot; gorm:&quot;column:id;primaryKey;autoIncrement;comment:自增主键id&quot;`</span><br>    Name          <span class="hljs-type">string</span>    <span class="hljs-string">`json:&quot;name&quot; gorm:&quot;column:name;comment:用户姓名&quot;`</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
@@ -309,6 +313,10 @@
 <div class="note note-info">
             <p>使用gorm时，进行修改增改操作时，尽量重新声明结构体来进行操作，和查询使用结构体分离开来。</p>
           </div>
+
+<h4 id="gorm-1"><a href="#gorm-1" class="headerlink" title="gorm"></a>gorm</h4><h6 id="FirstOrCreate与Assign"><a href="#FirstOrCreate与Assign" class="headerlink" title="FirstOrCreate与Assign"></a><code>FirstOrCreate</code>与<code>Assign</code></h6><p>空表插入数据、非空表更新数据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs mysql">// 未找到 user，根据条件和 Assign 属性创建记录<br>db.Where(User&#123;Name: &quot;non_existing&quot;&#125;).Assign(User&#123;Age: 20&#125;).FirstOrCreate(&amp;user)<br>// SELECT * FROM users WHERE name = &#x27;non_existing&#x27; ORDER BY id LIMIT 1;<br>// INSERT INTO &quot;users&quot; (name, age) VALUES (&quot;non_existing&quot;, 20);<br>// user -&gt; User&#123;ID: 112, Name: &quot;non_existing&quot;, Age: 20&#125;<br><br>// 找到了 `name` = `jinzhu` 的 user，依然会根据 Assign 更新记录<br>db.Where(User&#123;Name: &quot;jinzhu&quot;&#125;).Assign(User&#123;Age: 20&#125;).FirstOrCreate(&amp;user)<br>// SELECT * FROM users WHERE name = &#x27;jinzhu&#x27; ORDER BY id LIMIT 1;<br>// UPDATE users SET age=20 WHERE id = 111;<br>// user -&gt; User&#123;ID: 111, Name: &quot;jinzhu&quot;, Age: 20&#125;<br></code></pre></td></tr></table></figure>
+
 
                 
               </div>
