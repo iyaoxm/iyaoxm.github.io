@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>apt-get工具使用</title>
+    <link href="/2023/03/15/apt-get%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/"/>
+    <url>/2023/03/15/apt-get%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/</url>
+    
+    <content type="html"><![CDATA[<h2 id="apt-get工具使用"><a href="#apt-get工具使用" class="headerlink" title="apt-get工具使用"></a>apt-get工具使用</h2><h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><p>更新软件源信息：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">apt-get update <br></code></pre></td></tr></table></figure><p>安装、卸载、更新软件</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># 安装一个软件包</span><br>apt-get install package<br><span class="hljs-comment"># 安装多个软件包之间用空格隔开</span><br>apt-get install package1 package2<br><span class="hljs-comment"># install -y</span><br>安装过程中需要输入时自动使用`<span class="hljs-built_in">yes</span>`<br><span class="hljs-comment"># install -d</span><br>全部包下载完后再执行一次命令后安装（不含`-d`）<br><br><span class="hljs-comment"># 卸载软件包（仅删除软件包本身）</span><br>apt-get remove package<br><span class="hljs-comment"># 卸载软件包以及相应的配置文件</span><br>apt-get purge package<br><span class="hljs-comment"># 自动删除多余、冲突的包</span><br>apt-get autoremove<br><br><span class="hljs-comment"># 更新所有软件包</span><br>apt-get upgrade package<br><span class="hljs-comment"># 解决更新过程中出现的依赖的问题</span><br>apt-get dist-upgrade package<br></code></pre></td></tr></table></figure><p>安装多个软件</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># 多个软件之间用空格隔开</span><br>apt-get install package1 package2<br></code></pre></td></tr></table></figure><p>更换国内软件源</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs sh">1.vim /etc/apt/sources.list<br>2.将文件中的内容替换为如下阿里云的：<br>```<br>deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse<br>deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse<br>deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse<br>deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse<br>deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse<br>deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse<br>deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse<br>deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse<br>deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse<br>deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse<br>```<br>3.重新更新软件源：apt-get update<br></code></pre></td></tr></table></figure><p>查看已安装包的信息</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># 显示已安装的软件包</span><br>dpkg -l<br><span class="hljs-comment"># 显示某个具体的软件包的信息</span><br>dpkg -l | grep package<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>ubuntu</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>linux</tag>
+      
+      <tag>apt-get</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>github多账户配置</title>
     <link href="/2023/03/09/github%E5%A4%9A%E8%B4%A6%E6%88%B7%E9%85%8D%E7%BD%AE/"/>
     <url>/2023/03/09/github%E5%A4%9A%E8%B4%A6%E6%88%B7%E9%85%8D%E7%BD%AE/</url>
