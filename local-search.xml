@@ -8,7 +8,7 @@
     <link href="/2023/04/11/redis%E5%AD%A6%E4%B9%A0%E4%B8%8E%E4%BD%BF%E7%94%A8/"/>
     <url>/2023/04/11/redis%E5%AD%A6%E4%B9%A0%E4%B8%8E%E4%BD%BF%E7%94%A8/</url>
     
-    <content type="html"><![CDATA[<h2 id="redis学习与使用"><a href="#redis学习与使用" class="headerlink" title="redis学习与使用"></a>redis学习与使用</h2>]]></content>
+    <content type="html"><![CDATA[<h2 id="redis学习与使用"><a href="#redis学习与使用" class="headerlink" title="redis学习与使用"></a>redis学习与使用</h2><h3 id="清空redis数据命令"><a href="#清空redis数据命令" class="headerlink" title="清空redis数据命令"></a>清空redis数据命令</h3><p>所有数据库的所有 key</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs redis">flushall<br></code></pre></td></tr></table></figure><p>查看数据库key的数量</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs redis">DBSIZE<br></code></pre></td></tr></table></figure><p>切换到 1 号数据库</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs redis">SELECT 1<br></code></pre></td></tr></table></figure>]]></content>
     
     
     <categories>
