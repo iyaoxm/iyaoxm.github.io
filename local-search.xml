@@ -4,13 +4,50 @@
   
   
   <entry>
-    <title>字符串处理</title>
-    <link href="/2023/04/20/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/"/>
-    <url>/2023/04/20/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/</url>
+    <title>常用类型转换</title>
+    <link href="/2023/04/21/%E5%B8%B8%E7%94%A8%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/"/>
+    <url>/2023/04/21/%E5%B8%B8%E7%94%A8%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/</url>
     
     <content type="html"><![CDATA[]]></content>
     
     
+    <categories>
+      
+      <category>golang</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>golang</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>字符串处理</title>
+    <link href="/2023/04/20/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/"/>
+    <url>/2023/04/20/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/</url>
+    
+    <content type="html"><![CDATA[<h2 id="Go中常用的字符串处理方法"><a href="#Go中常用的字符串处理方法" class="headerlink" title="Go中常用的字符串处理方法"></a>Go中常用的字符串处理方法</h2><h3 id="strings-Split"><a href="#strings-Split" class="headerlink" title="strings.Split"></a>strings.Split</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">strings</span>.<span class="hljs-title">Split</span><span class="hljs-params">(s <span class="hljs-type">string</span>, sep <span class="hljs-type">string</span>)</span></span> []<span class="hljs-type">string</span><br><span class="hljs-comment">// 将切片 s 拆分为所有由 sep 分隔的子字符串，并返回这些分隔符之间的子字符串切片。</span><br></code></pre></td></tr></table></figure><h3 id="strings-Contains"><a href="#strings-Contains" class="headerlink" title="strings.Contains"></a>strings.Contains</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">strings</span>.<span class="hljs-title">Contains</span><span class="hljs-params">(s <span class="hljs-type">string</span>, substr <span class="hljs-type">string</span>)</span></span> <span class="hljs-type">bool</span><br><span class="hljs-comment">// 判断字符串 s 中是否含有 substr 字符</span><br></code></pre></td></tr></table></figure><h3 id="strings-Replace"><a href="#strings-Replace" class="headerlink" title="strings.Replace"></a>strings.Replace</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">strings</span>.<span class="hljs-title">Replace</span><span class="hljs-params">(s <span class="hljs-type">string</span>, old <span class="hljs-type">string</span>, <span class="hljs-built_in">new</span> <span class="hljs-type">string</span>, n <span class="hljs-type">int</span>)</span></span> <span class="hljs-type">string</span><br><span class="hljs-comment">// 返回 s 的副本，使用 new 替换前 n 个 old 字符（如果 n&lt;0，则替换没有次数限制）</span><br></code></pre></td></tr></table></figure><h3 id="strings-Fields"><a href="#strings-Fields" class="headerlink" title="strings.Fields"></a>strings.Fields</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">strings</span>.<span class="hljs-title">Fields</span><span class="hljs-params">(s <span class="hljs-type">string</span>)</span></span> []<span class="hljs-type">string</span><br><span class="hljs-comment">// </span><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>golang</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>golang</tag>
+      
+    </tags>
     
   </entry>
   
