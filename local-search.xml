@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>使用JWT进行身份验证</title>
+    <link href="/2023/04/24/%E4%BD%BF%E7%94%A8JWT%E8%BF%9B%E8%A1%8C%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81/"/>
+    <url>/2023/04/24/%E4%BD%BF%E7%94%A8JWT%E8%BF%9B%E8%A1%8C%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81/</url>
+    
+    <content type="html"><![CDATA[<h2 id="Go使用JWT进行身份验证"><a href="#Go使用JWT进行身份验证" class="headerlink" title="Go使用JWT进行身份验证"></a>Go使用JWT进行身份验证</h2>]]></content>
+    
+    
+    <categories>
+      
+      <category>token身份验证</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>golang</tag>
+      
+      <tag>jwt</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>常用类型转换</title>
     <link href="/2023/04/21/%E5%B8%B8%E7%94%A8%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/"/>
     <url>/2023/04/21/%E5%B8%B8%E7%94%A8%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/</url>
