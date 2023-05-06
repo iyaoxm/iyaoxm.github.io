@@ -16,15 +16,15 @@
   <meta name="author" content="Reach">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Go使用JWT进行身份验证">
+    <meta name="description" content="Go使用JWT进行身份验证一、介绍1.1 JSON Web Tokenjwt 是 json web token 的简称。 JSON Web Token (JWT) 是一种开放标准 ( RFC 7519 )，它定义了一种紧凑且独立的方式，用于在各方之间安全地传输信息作为 JSON 对象。此信息可以被验证和信任，因为它是经过数字签名的。JWT 可以使用密码（使用HMAC算法）或使用RSA或ECDSA的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用JWT进行身份验证">
 <meta property="og:url" content="http://example.com/2023/04/24/%E4%BD%BF%E7%94%A8JWT%E8%BF%9B%E8%A1%8C%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81/index.html">
 <meta property="og:site_name" content="Reach的博客">
-<meta property="og:description" content="Go使用JWT进行身份验证">
+<meta property="og:description" content="Go使用JWT进行身份验证一、介绍1.1 JSON Web Tokenjwt 是 json web token 的简称。 JSON Web Token (JWT) 是一种开放标准 ( RFC 7519 )，它定义了一种紧凑且独立的方式，用于在各方之间安全地传输信息作为 JSON 对象。此信息可以被验证和信任，因为它是经过数字签名的。JWT 可以使用密码（使用HMAC算法）或使用RSA或ECDSA的">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-04-24T07:12:40.000Z">
-<meta property="article:modified_time" content="2023-04-24T08:02:15.946Z">
+<meta property="article:modified_time" content="2023-04-28T06:51:08.167Z">
 <meta property="article:author" content="Reach">
 <meta property="article:tag" content="golang">
 <meta property="article:tag" content="jwt">
@@ -220,7 +220,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          13 字
+          6.3k 字
         
       </span>
     
@@ -231,7 +231,7 @@
         
         
         
-          1 分钟
+          53 分钟
         
       </span>
     
@@ -284,7 +284,108 @@
             
               <div class="markdown-body">
                 
-                <h2 id="Go使用JWT进行身份验证"><a href="#Go使用JWT进行身份验证" class="headerlink" title="Go使用JWT进行身份验证"></a>Go使用JWT进行身份验证</h2>
+                <h2 id="Go使用JWT进行身份验证"><a href="#Go使用JWT进行身份验证" class="headerlink" title="Go使用JWT进行身份验证"></a>Go使用JWT进行身份验证</h2><h2 id="一、介绍"><a href="#一、介绍" class="headerlink" title="一、介绍"></a>一、介绍</h2><h3 id="1-1-JSON-Web-Token"><a href="#1-1-JSON-Web-Token" class="headerlink" title="1.1 JSON Web Token"></a>1.1 JSON Web Token</h3><p><code>jwt</code> 是 <code>json web token</code> 的简称。</p>
+<p>JSON Web Token (JWT) 是一种开放标准 ( <a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc7519">RFC 7519</a> )，它定义了一种紧凑且独立的方式，用于在各方之间安全地传输信息作为 JSON 对象。此信息可以被验证和信任，因为它是经过数字签名的。JWT 可以使用密码（使用<strong>HMAC</strong>算法）或使用<strong>RSA</strong>或<strong>ECDSA</strong>的公钥&#x2F;私钥对进行签名。</p>
+<h3 id="1-2-JWT-的使用场景"><a href="#1-2-JWT-的使用场景" class="headerlink" title="1.2 JWT 的使用场景"></a>1.2 JWT 的使用场景</h3><ul>
+<li><strong>授权</strong>：这是使用 JWT 最常见的场景。用户登录后，每个后续请求都将包含 JWT，允许用户访问该令牌允许的路由、服务和资源。单点登录是如今广泛使用 JWT 的一项功能，因为它的开销很小并且能够轻松跨不同域使用。</li>
+<li><strong>信息交换</strong>：JSON Web Tokens 是在各方之间安全传输信息的好方法。因为 JWT 可以签名——例如，使用公钥&#x2F;私钥对——你可以确定发送者是他们所说的人。此外，由于签名是使用标头和有效负载计算的，因此还可以验证内容是否未被篡改。</li>
+</ul>
+<h3 id="1-3-JWT-的结构"><a href="#1-3-JWT-的结构" class="headerlink" title="1.3 JWT 的结构"></a>1.3 JWT 的结构</h3><p>JWT 由三部分组成，由点 ( <code>.</code>) 分隔，它们是：</p>
+<ul>
+<li>Header（标头）</li>
+<li>Payload（有效载荷）</li>
+<li>Signature（签名）</li>
+</ul>
+<p>JWT通常如下所示：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus">xxxxx<span class="hljs-selector-class">.yyyyy</span>.zzzzz<br></code></pre></td></tr></table></figure>
+
+<h4 id="1-3-1-Header"><a href="#1-3-1-Header" class="headerlink" title="1.3.1 Header"></a>1.3.1 Header</h4><p><code>Header</code> <strong>通常</strong>由两部分组成：令牌的类型，即 JWT，以及所使用的签名算法，例如 <code>HMAC SHA256</code> 或  <code>RSA</code>。</p>
+<p>例如：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;alg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;HS256&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;typ&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;JWT&quot;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+<p>然后，这个 JSON 被 <strong><code>Base64Url</code></strong> 编码以形成 JWT 的第一部分。</p>
+<h4 id="1-3-2-Payload"><a href="#1-3-2-Payload" class="headerlink" title="1.3.2 Payload"></a>1.3.2 Payload</h4><p><code>token</code> 的第二部分是Payload，由 <code>claims</code> 组成。</p>
+<p><code>claims</code> 关于实体（通常是用户）和附加数据的描述。</p>
+<p><code>claims</code> 分为三种类型：</p>
+<p><strong><code>registered claims（注册声明）</code></strong></p>
+<p> <strong><code>public claims（公共声明）</code></strong></p>
+<p> <strong><code>private claims（隐私声明）</code></strong> </p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc7519#section-4.1"><strong>registered claims（已注册声明）</strong></a>：这这些是一组预定义的声明，它们不是强制性的，但建议使用，以提供一组有用的、可互操作的声明。其中一些是： <strong>iss</strong>（发行者）、 <strong>exp</strong>（到期时间）、 <strong>sub</strong>（主题）、 <strong>aud</strong>（受众）和<a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc7519#section-4.1">其他</a>。</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc7519#section-4.2"><strong>public claims（公共声明）</strong></a>：这些可以由使用 JWT 的人随意定义。但是为了避免冲突，它们应该在<a target="_blank" rel="noopener" href="https://www.iana.org/assignments/jwt/jwt.xhtml">IANA JSON Web 令牌注册表</a>中定义，或者定义为包含抗冲突名称空间的 URI。</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc7519#section-4.3"><strong>private claims（隐私声明）</strong></a>：这些是为在同意使用它们的各方之间共享信息而创建的自定义声明，既不是注册声明也不是公共声明。</p>
+</li>
+</ul>
+<p>一个有效的Payload应该是：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;sub&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;1234567890&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;John Doe&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;admin&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+<p>然后，有效负载经过 <strong><code>Base64Url</code></strong> 编码，形成 JWT 的第二部分。</p>
+<h4 id="1-3-3-Signature"><a href="#1-3-3-Signature" class="headerlink" title="1.3.3 Signature"></a>1.3.3 Signature</h4><p>要创建签名部分，必须采用编码Header、编码Payload、 <code>secret</code> 、指定的算法，然后对其进行签名。</p>
+<p>例如，如果要使用 HMAC SHA256 算法，将按以下方式创建签名：</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs lisp">HMACSHA256(<br>  <span class="hljs-name">base64UrlEncode</span>(<span class="hljs-name">header</span>) + <span class="hljs-string">&quot;.&quot;</span> +<br>  base64UrlEncode(<span class="hljs-name">payload</span>),<br>  secret)<br></code></pre></td></tr></table></figure>
+
+<p>签名用于验证消息在此过程中没有被更改，并且在使用私钥签名的令牌的情况下，它还可以验证 JWT 的发送者是否如其所说。</p>
+<h4 id="1-3-4-组合-Header、Payload、Signature"><a href="#1-3-4-组合-Header、Payload、Signature" class="headerlink" title="1.3.4 组合 Header、Payload、Signature"></a>1.3.4 组合 Header、Payload、Signature</h4><p>输出由点分隔的三个 Base64-URL 字符串，可以在 HTML 和 HTTP 环境中轻松传递，同时与基于 XML 的标准（如 SAML）相比更加紧凑。</p>
+<p>下面显示了一个 JWT，它对前面的标头和有效负载进行了编码，并使用私钥进行了签名。</p>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs gcode">eyJhbGci<span class="hljs-number">0</span>iJIUzI<span class="hljs-number">1</span><span class="hljs-symbol">NiIsInR5</span>cCI<span class="hljs-number">6</span>IkpX<span class="hljs-attr">VCJ9</span>.<br>eyJzdWIi<span class="hljs-number">0</span>iIxMiMO<span class="hljs-symbol">NTY30</span>DkwIiwibmFtZSI<span class="hljs-number">6</span>Ikpva<span class="hljs-name">G4</span><br>gR<span class="hljs-name">G91</span>IiwiaX<span class="hljs-symbol">NTb2</span><span class="hljs-symbol">NpYWwi0</span><span class="hljs-symbol">nRydWV9</span>.<br><span class="hljs-number">4</span>pcPMD<span class="hljs-number">0901</span>PSyX<span class="hljs-symbol">nrXCiTwXyr4</span>BsezdI<span class="hljs-number">1</span>AVTmud<span class="hljs-number">2</span>fU<span class="hljs-number">4</span><br></code></pre></td></tr></table></figure>
+
+<p>目前， <code>Go</code> 主流使用的 <code>jwt</code> 库是 <code>golang-jwt/jwt</code> 。</p>
+<h3 id="1-4-JWT-如何工作？"><a href="#1-4-JWT-如何工作？" class="headerlink" title="1.4 JWT 如何工作？"></a>1.4 JWT 如何工作？</h3><p>在身份验证中，当用户使用其身份成功登录时，将返回一个 JSON Web Token。由于 token 是凭据，因此必须非常小心以防止出现安全问题。通常，不应该将令牌保留的时间超过要求的时间。</p>
+<p>每当用户想要访问受保护的路由或资源时，用户代理都应发送 JWT，通常使用在 <strong>Bearer模式的Authorization</strong> 标头中。标头的内容应如下所示：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml">Authorization: Bearer <span class="hljs-tag">&lt;<span class="hljs-name">token</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>在某些情况下，可以是无状态授权机制。服务器的受保护路由将检查标头中是否存在有效的 JWT <code>Authorization</code>，如果存在，则允许用户访问受保护的资源。如果 JWT 包含必要的数据，则可能会减少为某些操作查询数据库的需要。</p>
+<p>使用 HTTP 标头发送 JWT ，需要尽量防止它们太大。有些服务器不接受超过 8 KB 的标头。试图在 JWT 令牌中嵌入过多信息，例如通过包含所有用户的权限，需要寻找替代解决方案，例如<a target="_blank" rel="noopener" href="https://fga.dev/">Auth0 Fine-Grained Authorization</a>。</p>
+<p>如果 token 在 <code>Authorization</code> 标头中发送，跨源资源共享 (CORS) 将不会成为问题，因为它不使用 cookie。</p>
+<h3 id="1-5-JWT-的优势"><a href="#1-5-JWT-的优势" class="headerlink" title="1.5 JWT 的优势"></a>1.5 JWT 的优势</h3><p><strong>JSON Web Tokens (JWT)</strong> 与 <strong>Simple Web Tokens (SWT)</strong> 和 <strong>Security Assertion Markup Language Tokens (SAML)</strong> 相比的优势：</p>
+<p>由于 JSON 比 XML 更简洁，因此在编码时它的大小也更小，使 JWT 比 SAML 更紧凑。这使得 JWT 成为在 HTML 和 HTTP 环境中传递的不错选择。</p>
+<p>安全方面，SWT 只能通过使用 HMAC 算法的共享密钥进行对称签名。但是，JWT 和 SAML 令牌可以使用 X.509 证书形式的公钥&#x2F;私钥对进行签名。与签署 JSON 的简单性相比，使用 XML 数字签名签署 XML 而不会引入模糊的安全漏洞是非常困难的。</p>
+<p>JSON 解析器在大多数编程语言中都很常见，因为它们直接映射到对象。相反，XML 没有自然的文档到对象的映射。这使得使用 JWT 比使用 SAML 断言更容易。</p>
+<p>关于使用，JWT 用于互联网规模。这凸显了客户端在多个平台（尤其是移动平台）上处理 JSON Web 令牌的便利性。</p>
+<h2 id="二、golang-jwt-x2F-jwt"><a href="#二、golang-jwt-x2F-jwt" class="headerlink" title="二、golang-jwt&#x2F;jwt"></a>二、golang-jwt&#x2F;jwt</h2><h3 id="安装jwt包"><a href="#安装jwt包" class="headerlink" title="安装jwt包"></a>安装jwt包</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">go</span> get -u github.com/golang-jwt/jwt/v5<br></code></pre></td></tr></table></figure>
+
+<h3 id="主流的两种加密算法"><a href="#主流的两种加密算法" class="headerlink" title="主流的两种加密算法"></a>主流的两种加密算法</h3><table>
+<thead>
+<tr>
+<th align="left">加密算法</th>
+<th>代表算法</th>
+<th>加解密</th>
+<th>区别</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">对称加密算法</td>
+<td>HS256（最常用）、HS384、HS512</td>
+<td>期望[]byte用于签名和验证的值</td>
+<td>签名和验证密钥是相同的，两者必须受到同等保护（并且绝对不应该存储在您的代码中）</td>
+</tr>
+<tr>
+<td align="left">非对称加密算法</td>
+<td>RS256（最常用）、RS384、RS512</td>
+<td>rsa.PrivateKey用于签名和*rsa.PublicKey用于验证</td>
+<td>私钥（必须保密）用于签名，相应的公钥（可以自由传输）用于<em>验证</em>令牌。</td>
+</tr>
+</tbody></table>
+<h2 id="三、代码实现-对称加密hsa（hash加密）"><a href="#三、代码实现-对称加密hsa（hash加密）" class="headerlink" title="三、代码实现-对称加密hsa（hash加密）"></a>三、代码实现-对称加密hsa（hash加密）</h2><h3 id="3-1-加密生成-token"><a href="#3-1-加密生成-token" class="headerlink" title="3.1 加密生成 token"></a>3.1 加密生成 token</h3><p>使用 <code>jwt.NewWithClaims()</code> 方法来生成<code>token</code>，官方的源码如下：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">NewWithClaims</span><span class="hljs-params">(method SigningMethod, claims Claims, opts ...TokenOption)</span></span> *Token &#123;<br>	<span class="hljs-keyword">return</span> &amp;Token&#123;<br>		Header: <span class="hljs-keyword">map</span>[<span class="hljs-type">string</span>]<span class="hljs-keyword">interface</span>&#123;&#125;&#123;<br>			<span class="hljs-string">&quot;typ&quot;</span>: <span class="hljs-string">&quot;JWT&quot;</span>,<br>			<span class="hljs-string">&quot;alg&quot;</span>: method.Alg(),<br>		&#125;,<br>		Claims: claims,<br>		Method: method,<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="3-2-生成token并使用hs256加密方法进行加密"><a href="#3-2-生成token并使用hs256加密方法进行加密" class="headerlink" title="3.2 生成token并使用hs256加密方法进行加密"></a>3.2 生成token并使用hs256加密方法进行加密</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">type</span> User <span class="hljs-keyword">struct</span> &#123;<br>    ID     <span class="hljs-type">int64</span><br>    Name   <span class="hljs-type">string</span><br>    Age    <span class="hljs-type">int</span><br>    Gender <span class="hljs-type">string</span><br>&#125;<br><br><span class="hljs-keyword">type</span> UserClaims <span class="hljs-keyword">struct</span> &#123;<br>    User User<br>    jwt.RegisteredClaims<br>&#125;<br><br><span class="hljs-comment">// CreateHs256Token 生成一个token并使用hs256加密方法进行加密</span><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">CreateHs256Token</span><span class="hljs-params">()</span></span> &#123;<br>    user := User&#123;<br>        ID:     <span class="hljs-number">1</span>,<br>        Name:   <span class="hljs-string">&quot;LiHua&quot;</span>,<br>        Age:    <span class="hljs-number">18</span>,<br>        Gender: <span class="hljs-string">&quot;男&quot;</span>,<br>    &#125;<br>    fmt.Println(user)<br>    userClaims := UserClaims&#123;<br>        User:             user,<br>        RegisteredClaims: jwt.RegisteredClaims&#123;&#125;,<br>    &#125;<br>    token := jwt.NewWithClaims(jwt.SigningMethodHS256, userClaims)<br><br>    hs256Token, err := token.SignedString([]<span class="hljs-type">byte</span>(common.PriKey))<br>    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> &#123;<br>        fmt.Println(<span class="hljs-string">&quot;Error: &quot;</span>, err)<br>    &#125;<br>    fmt.Println(<span class="hljs-string">&quot;hs256: &quot;</span>, hs256Token)<br>    ParseHs256Token(hs256Token)<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="3-3-解密token得到原始数据"><a href="#3-3-解密token得到原始数据" class="headerlink" title="3.3 解密token得到原始数据"></a>3.3 解密token得到原始数据</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">// ParseHs256Token 解析hs256加密方法加密的token</span><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">ParseHs256Token</span><span class="hljs-params">(hs256Token <span class="hljs-type">string</span>)</span></span> &#123;<br>    token, err := jwt.ParseWithClaims(hs256Token, &amp;UserClaims&#123;&#125;, <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(t *jwt.Token)</span></span> (<span class="hljs-keyword">interface</span>&#123;&#125;, <span class="hljs-type">error</span>) &#123;<br><br>        <span class="hljs-keyword">return</span> []<span class="hljs-type">byte</span>(common.PriKey), <span class="hljs-literal">nil</span><br>    &#125;)<br>    <span class="hljs-keyword">if</span> userClaims, ok := token.Claims.(*UserClaims); ok &amp;&amp; token.Valid &#123;<br>        fmt.Println(userClaims, userClaims.RegisteredClaims.Issuer)<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        fmt.Println(err)<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="四、代码实现-非对称加密-rsa（rs256加密）"><a href="#四、代码实现-非对称加密-rsa（rs256加密）" class="headerlink" title="四、代码实现-非对称加密 rsa（rs256加密）"></a>四、代码实现-非对称加密 rsa（rs256加密）</h2><h3 id="4-1-生成-rsa-私钥和公钥"><a href="#4-1-生成-rsa-私钥和公钥" class="headerlink" title="4.1 生成 rsa 私钥和公钥"></a>4.1 生成 rsa 私钥和公钥</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">生成私钥<br>openssl genrsa -out private-key.pem<br>生成公钥<br>openssl rsa -in private-key.pem -pubout -out public-key.pem<br></code></pre></td></tr></table></figure>
+
+<h3 id="4-2-生成token并使用rs256加密方法进行加密"><a href="#4-2-生成token并使用rs256加密方法进行加密" class="headerlink" title="4.2 生成token并使用rs256加密方法进行加密"></a>4.2 生成token并使用rs256加密方法进行加密</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">// CreateRs256Token 生成一个token并使用rs256加密方法进行加密</span><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">CreateRs256Token</span><span class="hljs-params">()</span></span> &#123;<br>    user := User&#123;<br>        ID:     <span class="hljs-number">2</span>,<br>        Name:   <span class="hljs-string">&quot;Lisa&quot;</span>,<br>        Gender: <span class="hljs-string">&quot;女&quot;</span>,<br>    &#125;<br>    userClaims := UserClaims&#123;<br>        User:             user,<br>        RegisteredClaims: jwt.RegisteredClaims&#123;&#125;,<br>    &#125;<br>    privateKeyDataPem, err := os.ReadFile(<span class="hljs-string">&quot;key/private-key.pem&quot;</span>)<br>    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> &#123;<br>        fmt.Println(<span class="hljs-string">&quot;Error: &quot;</span>, err)<br>        <span class="hljs-keyword">return</span><br>    &#125;<br>    privateKey, err := jwt.ParseRSAPrivateKeyFromPEM(privateKeyDataPem)<br>    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> &#123;<br>        fmt.Println(<span class="hljs-string">&quot;Error: &quot;</span>, err)<br>        <span class="hljs-keyword">return</span><br>    &#125;<br>    token := jwt.NewWithClaims(jwt.SigningMethodRS256, userClaims)<br><br>    rs256Token, err := token.SignedString(privateKey)<br>    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> &#123;<br>        fmt.Println(<span class="hljs-string">&quot;Error: &quot;</span>, err)<br>        <span class="hljs-keyword">return</span><br>    &#125;<br>    fmt.Println(<span class="hljs-string">&quot;rsa256: &quot;</span>, rs256Token)<br>    ParseRs256Token(rs256Token)<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="4-3-解密token得到原始数据"><a href="#4-3-解密token得到原始数据" class="headerlink" title="4.3 解密token得到原始数据"></a>4.3 解密token得到原始数据</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">// ParseRs256Token 解析rs256加密方法加密的的token</span><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">ParseRs256Token</span><span class="hljs-params">(rs256Token <span class="hljs-type">string</span>)</span></span> &#123;<br>    token, err := jwt.ParseWithClaims(rs256Token, &amp;UserClaims&#123;&#125;, <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(t *jwt.Token)</span></span> (<span class="hljs-keyword">interface</span>&#123;&#125;, <span class="hljs-type">error</span>) &#123;<br>        publicKeyDataPem, err := os.ReadFile(<span class="hljs-string">&quot;key/public-key.pem&quot;</span>)<br>        <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> &#123;<br>            fmt.Println(<span class="hljs-string">&quot;Error: &quot;</span>, err)<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span>, err<br>        &#125;<br>        <span class="hljs-keyword">return</span> jwt.ParseRSAPublicKeyFromPEM(publicKeyDataPem)<br>    &#125;)<br><br>    <span class="hljs-keyword">if</span> userClaims, ok := token.Claims.(*UserClaims); ok &amp;&amp; token.Valid &#123;<br>        fmt.Println(userClaims, userClaims.RegisteredClaims.Issuer)<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        fmt.Println(<span class="hljs-string">&quot;Errors: &quot;</span>, err.Error())<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="HTTPS-的加密流程"><a href="#HTTPS-的加密流程" class="headerlink" title="HTTPS 的加密流程"></a>HTTPS 的加密流程</h2><p>HTTPS 组合使用了对称加密和非对称加密</p>
+<p>服务端生成了一对公钥和私钥，把公钥和证书发给客户端<br>客户端验证了证书真伪<br>客户端生成一个随机值，用公钥加密发给了服务端<br>服务端用私钥解密，获取了随机值<br>服务端使用该随机值作为密钥和客户端进通信</p>
+<p>服务端的公钥和私钥就是非对称加密，客户端生成的随机值作为密钥来通信就是对称加密</p>
+
                 
               </div>
             
@@ -332,6 +433,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2023/05/06/Go%E5%BC%80%E5%8F%91%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="Go开发常用命令">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Go开发常用命令</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
