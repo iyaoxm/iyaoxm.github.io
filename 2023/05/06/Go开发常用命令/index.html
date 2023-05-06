@@ -16,15 +16,15 @@
   <meta name="author" content="Reach">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Null">
+    <meta name="description" content="Go开发常用命令交叉编译Mac 下编译， Linux 或者 Windows 下执行1234# linux 下执行CGO_ENABLED&#x3D;0  GOOS&#x3D;linux  GOARCH&#x3D;amd64  go build main.go# Windows 下执行CGO_ENABLED&#x3D;0 GOOS&#x3D;windows  GOARCH&#x3D;amd64  go  build  main.go  Linux 下编译 ，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Go开发常用命令">
 <meta property="og:url" content="http://example.com/2023/05/06/Go%E5%BC%80%E5%8F%91%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
 <meta property="og:site_name" content="Reach的博客">
-<meta property="og:description" content="Null">
+<meta property="og:description" content="Go开发常用命令交叉编译Mac 下编译， Linux 或者 Windows 下执行1234# linux 下执行CGO_ENABLED&#x3D;0  GOOS&#x3D;linux  GOARCH&#x3D;amd64  go build main.go# Windows 下执行CGO_ENABLED&#x3D;0 GOOS&#x3D;windows  GOARCH&#x3D;amd64  go  build  main.go  Linux 下编译 ，">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-05-06T03:10:26.000Z">
-<meta property="article:modified_time" content="2023-05-06T03:11:18.315Z">
+<meta property="article:modified_time" content="2023-05-06T03:15:40.719Z">
 <meta property="article:author" content="Reach">
 <meta property="article:tag" content="golang">
 <meta name="twitter:card" content="summary_large_image">
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 字
+          895 字
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          1 分钟
+          8 分钟
         
       </span>
     
@@ -283,7 +283,32 @@
             
               <div class="markdown-body">
                 
-                
+                <h2 id="Go开发常用命令"><a href="#Go开发常用命令" class="headerlink" title="Go开发常用命令"></a>Go开发常用命令</h2><h3 id="交叉编译"><a href="#交叉编译" class="headerlink" title="交叉编译"></a>交叉编译</h3><h4 id="Mac-下编译，-Linux-或者-Windows-下执行"><a href="#Mac-下编译，-Linux-或者-Windows-下执行" class="headerlink" title="Mac 下编译， Linux 或者 Windows 下执行"></a>Mac 下编译， Linux 或者 Windows 下执行</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">linux 下执行</span><br>CGO_ENABLED=0  GOOS=linux  GOARCH=amd64  go build main.go<br><span class="hljs-meta prompt_"># </span><span class="language-bash">Windows 下执行</span><br>CGO_ENABLED=0 GOOS=windows  GOARCH=amd64  go  build  main.go<br></code></pre></td></tr></table></figure>
+
+<h4 id="Linux-下编译-，-Mac-或者-Windows-下执行"><a href="#Linux-下编译-，-Mac-或者-Windows-下执行" class="headerlink" title="Linux 下编译 ， Mac 或者 Windows 下执行"></a>Linux 下编译 ， Mac 或者 Windows 下执行</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">Mac  下执行</span><br>CGO_ENABLED=0 GOOS=darwin  GOARCH=amd64  go build main.go<br><span class="hljs-meta prompt_"># </span><span class="language-bash">Windows 下执行</span><br>CGO_ENABLED=0 GOOS=windows  GOARCH=amd64  go build main.go<br></code></pre></td></tr></table></figure>
+
+<h4 id="Windows-下执行-，-Mac-或-Linux-下执行"><a href="#Windows-下执行-，-Mac-或-Linux-下执行" class="headerlink" title="Windows 下执行 ， Mac 或 Linux 下执行"></a>Windows 下执行 ， Mac 或 Linux 下执行</h4><p>需要写一个批处理程序，在里面去设置，因为windows 下的 terminal 不支持shell , 这跟 Mac 和 Linux下的有点不同</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">Mac 下执行</span><br>SET  CGO_ENABLED=0<br>SET GOOS=darwin<br>SET GOARCH=amd64<br>go build main.go<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">Linux 去执行</span><br>SET CGO_ENABLED=0<br>SET GOOS=linux<br>SET GOARCH=amd64<br>go build main.go<br></code></pre></td></tr></table></figure>
+
+<h4 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h4><ul>
+<li><strong>CGO_ENABLED</strong> : CGO 表示golang中的工具，CGO_ENABLED 表示CGO禁用，交叉编译中不能使用CGO的</li>
+<li><strong>GOOS</strong> : 目标平台<ul>
+<li>mac 对应  <strong>darwin</strong></li>
+<li>linux 对应 <strong>linux</strong></li>
+<li>windows 对应 <strong>windows</strong></li>
+</ul>
+</li>
+<li><strong>GOARCH</strong> ：目标平台的体系架构【386，amd64,arm】, 目前市面上的个人电脑一般都是amd64架构的<ul>
+<li>386 也称 x86 对应  32位操作系统</li>
+<li>amd64 也称 x64 对应 64位操作系统</li>
+<li>arm 这种架构一般用于嵌入式开发。 比如 Android ， IOS ， Win mobile , TIZEN 等</li>
+</ul>
+</li>
+</ul>
+<h4 id="linux-或者-Mac下-go-build-前面的参数为何需要那样设置？"><a href="#linux-或者-Mac下-go-build-前面的参数为何需要那样设置？" class="headerlink" title="linux 或者 Mac下 go build 前面的参数为何需要那样设置？"></a>linux 或者 Mac下 go build 前面的参数为何需要那样设置？</h4><p><strong>go env</strong> 可以列出我们的 golang 默认环境变量，在shell中当我们只想一次性更改其环境变量时，就可以通过在 shell 中设置变量的方式来更改这个环境变量。</p>
+
                 
               </div>
             
